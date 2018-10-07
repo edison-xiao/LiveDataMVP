@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="dm_1dp">1dp</dimen>
+    <dimen name="dm_2dp">2dp</dimen>
+    <dimen name="dm_3dp">2dp</dimen>
+    <dimen name="dm_4dp">3dp</dimen>
+    <dimen name="dm_5dp">4dp</dimen>
+    <dimen name="dm_8dp">7dp</dimen>
+    <dimen name="dm_10dp">8dp</dimen>
+    <dimen name="dm_15dp">12dp</dimen>
+    <dimen name="dm_20dp">16dp</dimen>
+    <dimen name="dm_30dp">24dp</dimen>
+    <dimen name="dm_40dp">32dp</dimen>
+    <dimen name="dm_50dp">40dp</dimen>
+    <dimen name="dm_60dp">48dp</dimen>
+    <dimen name="dm_70dp">56dp</dimen>
+    <dimen name="dm_80dp">64dp</dimen>
+    <dimen name="dm_90dp">72dp</dimen>
+    <dimen name="dm_100dp">80dp</dimen>
+    <dimen name="dm_150dp">130dp</dimen>
+    <dimen name="dm_200dp">170dp</dimen>
+    <dimen name="dm_210dp">180dp</dimen>
+    <dimen name="dm_230dp">200dp</dimen>
+    <dimen name="dm_250dp">250dp</dimen>
+    <dimen name="dm_300dp">300dp</dimen>
+
+    <dimen name="margin_normal">8dp</dimen>
+    <dimen name="margin_large">16dp</dimen>
+    <dimen name="text_size_large">16sp</dimen>
+    <dimen name="margin_small">0dp</dimen>
+
+
+
+    <!-- START widget -->
+    <dimen name="button_height">40dp</dimen>
+    <dimen name="button_height_micro">30dp</dimen>
+    <dimen name="button_radius">8dp</dimen>
+    <dimen name="button_negative_radius">1dp</dimen>
+
+    <dimen name="input_height">38dp</dimen>
+    <dimen name="input_radius">8dp</dimen>
+    <dimen name="input_padding">8dp</dimen>
+
+    <dimen name="text_spacing">3dp</dimen>
+
+    <dimen name="divider">0.7dp</dimen>
+    <dimen name="listitem_height">44dp</dimen>
+    <dimen name="listitem_padding">16dp</dimen>
+    <dimen name="listitem_padding_half">8dp</dimen>
+    <dimen name="listitem_margin">16dp</dimen>
+    <dimen name="listitem_decoration_spacing">4dp</dimen>
+    <dimen name="listitem_decoration_edge">8dp</dimen>
+    <dimen name="listitem_decoration_none">0dp</dimen>
+    <!-- END widget -->
+</resources>
