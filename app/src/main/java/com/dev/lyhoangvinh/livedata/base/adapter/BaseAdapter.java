@@ -12,6 +12,10 @@ public abstract class BaseAdapter<T, VH extends RecyclerView.ViewHolder> extends
     @NonNull
     private List<T> data;
 
+    public BaseAdapter(@NonNull List<T> data) {
+        this.data = data;
+    }
+
     public VH onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(this.getItemLayoutResource(), parent, false);
         return this.createViewHolder(v);

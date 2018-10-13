@@ -11,6 +11,7 @@ import com.dev.lyhoangvinh.livedata.base.adapter.SimpleDividerItemDecoration;
 import com.dev.lyhoangvinh.livedata.base.fragment.BaseFragment;
 import com.dev.lyhoangvinh.livedata.model.Collections;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -32,7 +33,8 @@ public class CollectionsFragment extends BaseFragment implements CollectionsView
     @Override
     protected void initialize(Context ctx) {
         presenter = new CollectionsPresenter(this, ctx);
-        adapter = new CollectionsAdapter();
+        List<Collections> list = new ArrayList<>();
+        adapter = new CollectionsAdapter(list);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(ctx);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         rcv.setLayoutManager(linearLayoutManager);

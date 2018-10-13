@@ -8,7 +8,7 @@ import android.support.annotation.Nullable;
 import com.dev.lyhoangvinh.livedata.R;
 import com.dev.lyhoangvinh.livedata.base.fragment.BaseFragment;
 
-@SuppressWarnings({"unchecked"})
+//@SuppressWarnings({"unchecked"})
 public abstract class BaseSingleFragmentActivity<T extends BaseFragment> extends BaseActivity {
 
     @Override

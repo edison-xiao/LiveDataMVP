@@ -1,11 +1,9 @@
 package com.dev.lyhoangvinh.livedata.model;
 
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import lombok.Getter;
-
-@Getter
 public class Collections {
 
     @SerializedName("id")
@@ -29,4 +27,32 @@ public class Collections {
     @SerializedName("collection_url")
     @Expose
     private String collectionUrl;
+
+    public String getId() {
+        return id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getKeyword() {
+        return keyword;
+    }
+
+    public String getCoverUrl() {
+        return coverUrl;
+    }
+
+    public Integer getTotalViews() {
+        return totalViews;
+    }
+
+    public Integer getVideoCount() {
+        return videoCount;
+    }
+
+    public String getCollectionUrl() {
+        return collectionUrl;
+    }
 }

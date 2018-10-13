@@ -8,8 +8,14 @@ import com.dev.lyhoangvinh.livedata.base.adapter.BaseAdapter;
 import com.dev.lyhoangvinh.livedata.model.Collections;
 import com.dev.lyhoangvinh.livedata.utils.MyFunctions;
 
+import java.util.List;
+
 
 public class CollectionsAdapter extends BaseAdapter<Collections, CollectionsViewHolder> {
+
+    public CollectionsAdapter(@NonNull List<Collections> data) {
+        super(data);
+    }
 
     @Override
     public int getItemLayoutResource() {

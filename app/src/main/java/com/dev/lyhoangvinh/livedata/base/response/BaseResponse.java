@@ -3,9 +3,6 @@ package com.dev.lyhoangvinh.livedata.base.response;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import lombok.Getter;
-
-@Getter
 public class BaseResponse<T> {
 
     @SerializedName("success")
@@ -15,4 +12,13 @@ public class BaseResponse<T> {
     @SerializedName("response")
     @Expose
     private T response;
+
+    public boolean isSuccess() {
+        return success;
+    }
+
+    public T getResponse() {
+        return response;
+    }
 }
+

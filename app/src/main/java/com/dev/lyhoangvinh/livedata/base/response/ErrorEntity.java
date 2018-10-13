@@ -1,25 +1,19 @@
 package com.dev.lyhoangvinh.livedata.base.response;
 
+
 import android.support.annotation.Nullable;
 
 import org.json.JSONObject;
 
 import java.io.IOException;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 import retrofit2.HttpException;
 import retrofit2.Response;
 
 /**
  * Entity for handling error
  */
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+
 public class ErrorEntity {
 
     public static final int HTTP_ERROR_CODE_UNAUTHORIZED = 401;
@@ -70,5 +64,45 @@ public class ErrorEntity {
 
     public static ErrorEntity getErrorOops() {
         return new ErrorEntity(OOPS, 0);
+    }
+
+    public ErrorEntity() {
+    }
+
+    public ErrorEntity(String message, int httpCode) {
+        this.message = message;
+        this.httpCode = httpCode;
+    }
+
+    public static int getHttpErrorCodeUnauthorized() {
+        return HTTP_ERROR_CODE_UNAUTHORIZED;
+    }
+
+    public static String getOOPS() {
+        return OOPS;
+    }
+
+    public static String getNetworkUnavailable() {
+        return NETWORK_UNAVAILABLE;
+    }
+
+    public static String getErrorUnauthorized() {
+        return ERROR_UNAUTHORIZED;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public int getHttpCode() {
+        return httpCode;
+    }
+
+    public void setHttpCode(int httpCode) {
+        this.httpCode = httpCode;
     }
 }

@@ -18,9 +18,7 @@ import com.dev.lyhoangvinh.livedata.base.view.BaseView;
 import io.reactivex.Single;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
-import lombok.Getter;
 
-@Getter
 public abstract class BasePresenter<V extends BaseView> implements Destroyable {
 
     @Nullable
@@ -35,6 +33,15 @@ public abstract class BasePresenter<V extends BaseView> implements Destroyable {
         this.view = mView;
         this.context = context;
         mCompositeDisposable = new CompositeDisposable();
+    }
+
+    @Nullable
+    public V getView() {
+        return view;
+    }
+
+    public Context getContext() {
+        return context;
     }
 
     public ApiService getApi(){
