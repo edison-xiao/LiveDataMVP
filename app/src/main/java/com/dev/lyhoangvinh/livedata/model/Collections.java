@@ -4,14 +4,13 @@ package com.dev.lyhoangvinh.livedata.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+
 public class Collections {
 
-    @SerializedName("id")
-    @Expose
-    private String id;
     @SerializedName("title")
     @Expose
     private String title;
+
     @SerializedName("keyword")
     @Expose
     private String keyword;
@@ -27,10 +26,6 @@ public class Collections {
     @SerializedName("collection_url")
     @Expose
     private String collectionUrl;
-
-    public String getId() {
-        return id;
-    }
 
     public String getTitle() {
         return title;

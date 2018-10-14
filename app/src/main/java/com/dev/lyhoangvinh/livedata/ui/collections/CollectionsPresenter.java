@@ -3,7 +3,16 @@ package com.dev.lyhoangvinh.livedata.ui.collections;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
+
+import com.dev.lyhoangvinh.livedata.MyApplication;
 import com.dev.lyhoangvinh.livedata.base.presenter.BasePresenter;
+import com.dev.lyhoangvinh.livedata.local.CollectionsLocal;
+import com.dev.lyhoangvinh.livedata.local.RealmDatabase;
+import com.dev.lyhoangvinh.livedata.model.Collections;
+
+import java.util.List;
+
+import io.realm.Realm;
 
 
 public class CollectionsPresenter extends BasePresenter<CollectionsView> {
@@ -14,6 +23,7 @@ public class CollectionsPresenter extends BasePresenter<CollectionsView> {
         super(mView, context);
     }
 
+    //------------------------------------------------------//
 
     public void loadData(boolean forceUpdate) {
         mPageIndex = 0;
@@ -34,9 +44,16 @@ public class CollectionsPresenter extends BasePresenter<CollectionsView> {
         }
 
         addRequest(getApi().getCollections(pageIndex), forceUpdate, dto -> {
-            if (getView() != null) {
-                getView().onLoadDataPage(dto.getCollections(), dto.isHasMore());
-            }
+//            if (getView() != null) {
+//                getView().onLoadDataPage(dto.getCollections(), dto.isHasMore());
+//            }
+
         });
+    }
+
+
+
+    private void saveCollections(List<CollectionsLocal> collections) {
+        MyApplication.getRealm().executeTransactionAsync(realm -> realm.insertOrUpdate(collections));
     }
 }

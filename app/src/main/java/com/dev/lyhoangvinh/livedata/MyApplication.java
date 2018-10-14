@@ -9,6 +9,8 @@ import android.support.v4.app.Fragment;
 
 import com.google.gson.Gson;
 
+import io.realm.Realm;
+
 
 public class MyApplication extends Application {
 
@@ -20,11 +22,21 @@ public class MyApplication extends Application {
         return mSelf;
     }
 
+    private static Realm realm;
+
+    public static Realm getRealm() {
+        if (realm == null){
+            realm = Realm.getDefaultInstance();
+        }
+        return realm;
+    }
+
     @Override
     public void onCreate() {
         super.onCreate();
         mSelf = this;
         mGSon = new Gson();
+        Realm.init(this);
     }
 
 

@@ -5,10 +5,12 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.dev.lyhoangvinh.livedata.MyApplication;
 import com.dev.lyhoangvinh.livedata.R;
 import com.dev.lyhoangvinh.livedata.base.adapter.EndlessRecyclerViewScrollListener;
 import com.dev.lyhoangvinh.livedata.base.adapter.SimpleDividerItemDecoration;
 import com.dev.lyhoangvinh.livedata.base.fragment.BaseFragment;
+import com.dev.lyhoangvinh.livedata.local.CollectionsLocal;
 import com.dev.lyhoangvinh.livedata.model.Collections;
 
 import java.util.ArrayList;
@@ -40,8 +42,8 @@ public class CollectionsFragment extends BaseFragment implements CollectionsView
         rcv.setLayoutManager(linearLayoutManager);
         rcv.setItemAnimator(new DefaultItemAnimator());
         rcv.setHasFixedSize(true);
-        rcv.addItemDecoration(new SimpleDividerItemDecoration(ctx, SimpleDividerItemDecoration.VERTICAL, R.drawable.list_divider_margin));
-        rcv.setAdapter(adapter);
+//        rcv.addItemDecoration(new SimpleDividerItemDecoration(ctx, SimpleDividerItemDecoration.VERTICAL, R.drawable.list_divider_margin));
+        rcv.setAdapter(new CollectionsRealmAdapter(MyApplication.getRealm().where(CollectionsLocal.class).findAllAsync()));
         endlessScrollListener = new EndlessRecyclerViewScrollListener(linearLayoutManager) {
             @Override
             public void onLoadMore(int totalItemsCount) {
