@@ -1,6 +1,5 @@
 package com.dev.lyhoangvinh.livedata.base.fragment;
 
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
