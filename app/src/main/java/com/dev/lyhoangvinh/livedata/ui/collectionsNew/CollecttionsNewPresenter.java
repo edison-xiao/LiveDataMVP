@@ -3,6 +3,7 @@ package com.dev.lyhoangvinh.livedata.ui.collectionsNew;
 import android.content.Context;
 import android.support.annotation.Nullable;
 
+import com.dev.lyhoangvinh.livedata.base.managers.ServiceManager;
 import com.dev.lyhoangvinh.livedata.base.presenter.BasePresenter;
 import com.dev.lyhoangvinh.livedata.di.qualifier.ActivityContext;
 import com.dev.lyhoangvinh.livedata.di.qualifier.ApplicationContext;
@@ -16,8 +17,8 @@ public class CollecttionsNewPresenter extends BasePresenter<CollectionsView> {
     private int mPageIndex = 0;
 
     @Inject
-    public CollecttionsNewPresenter(@ActivityContext Context context) {
-        super(context);
+    public CollecttionsNewPresenter(@ActivityContext Context context, ServiceManager manager) {
+        super(context, manager);
     }
 
     public void loadData(boolean forceUpdate) {

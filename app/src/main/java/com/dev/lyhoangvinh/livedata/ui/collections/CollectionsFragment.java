@@ -5,9 +5,11 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.dev.lyhoangvinh.livedata.MyApplication;
 import com.dev.lyhoangvinh.livedata.R;
 import com.dev.lyhoangvinh.livedata.base.adapter.EndlessRecyclerViewScrollListener;
 import com.dev.lyhoangvinh.livedata.base.fragment.BaseFragment;
+import com.dev.lyhoangvinh.livedata.base.managers.ServiceManager;
 import com.dev.lyhoangvinh.livedata.data.model.Collectionss;
 
 import java.util.ArrayList;
@@ -31,7 +33,7 @@ public class CollectionsFragment extends BaseFragment implements CollectionsView
 
     @Override
     protected void initialize(Context ctx) {
-        presenter = new CollectionsPresenter(ctx);
+//        presenter = new CollectionsPresenter(ctx, new ServiceManager(My);
         List<Collectionss> list = new ArrayList<>();
         adapter = new CollectionsAdapter(list);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(ctx);

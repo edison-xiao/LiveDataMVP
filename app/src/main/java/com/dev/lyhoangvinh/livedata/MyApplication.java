@@ -9,6 +9,8 @@ import android.support.v4.app.Fragment;
 import com.dev.lyhoangvinh.livedata.di.component.AppComponent;
 import com.dev.lyhoangvinh.livedata.di.component.DaggerAppComponent;
 import com.dev.lyhoangvinh.livedata.di.module.AppModule;
+import com.dev.lyhoangvinh.livedata.di.module.NetworkModule;
+import com.dev.lyhoangvinh.livedata.di.module.ServiceModule;
 
 public class MyApplication extends Application {
 
@@ -18,6 +20,8 @@ public class MyApplication extends Application {
     protected void setupAppComponent() {
         appComponent = DaggerAppComponent.builder()
                 .appModule(new AppModule(this))
+                .serviceModule(new ServiceModule(this))
+                .networkModule(new NetworkModule(this))
                 .build();
         appComponent.inject(this);
     }

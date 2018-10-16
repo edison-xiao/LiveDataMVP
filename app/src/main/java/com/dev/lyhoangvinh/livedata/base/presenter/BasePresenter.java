@@ -13,6 +13,7 @@ import com.dev.lyhoangvinh.livedata.base.api.ApiUtils;
 import com.dev.lyhoangvinh.livedata.base.interfaces.Lifecycle;
 import com.dev.lyhoangvinh.livedata.base.interfaces.PlainConsumer;
 import com.dev.lyhoangvinh.livedata.base.interfaces.Refreshable;
+import com.dev.lyhoangvinh.livedata.base.managers.ServiceManager;
 import com.dev.lyhoangvinh.livedata.base.response.BaseResponse;
 import com.dev.lyhoangvinh.livedata.base.response.ErrorEntity;
 import com.dev.lyhoangvinh.livedata.base.view.BaseView;
@@ -29,11 +30,14 @@ public abstract class BasePresenter<V extends BaseView> implements Lifecycle, Re
 
     protected Context context;
 
+    protected ServiceManager manager;
+
     @NonNull
     private CompositeDisposable mCompositeDisposable;
 
-    public BasePresenter(@ActivityContext Context context) {
+    public BasePresenter(@ActivityContext Context context, ServiceManager manager) {
         this.context = context;
+        this.manager = manager;
         mCompositeDisposable = new CompositeDisposable();
     }
 
@@ -47,7 +51,7 @@ public abstract class BasePresenter<V extends BaseView> implements Lifecycle, Re
     }
 
     public ApiService getApi(){
-        return ApiClient.makeService(ApiService.class);
+        return manager.getApiService();
     }
 
     public void bindView(V view) {

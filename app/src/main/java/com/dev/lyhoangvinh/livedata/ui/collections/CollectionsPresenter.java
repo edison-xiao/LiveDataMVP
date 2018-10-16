@@ -4,6 +4,7 @@ package com.dev.lyhoangvinh.livedata.ui.collections;
 import android.content.Context;
 import android.support.annotation.Nullable;
 
+import com.dev.lyhoangvinh.livedata.base.managers.ServiceManager;
 import com.dev.lyhoangvinh.livedata.base.presenter.BasePresenter;
 import com.dev.lyhoangvinh.livedata.data.local.CollectionsLocal;
 import com.dev.lyhoangvinh.livedata.data.model.Collectionss;
@@ -13,8 +14,8 @@ public class CollectionsPresenter extends BasePresenter<CollectionsView> {
 
     private int mPageIndex = 0;
 
-    public CollectionsPresenter(Context context) {
-        super(context);
+    public CollectionsPresenter(Context context, ServiceManager manager) {
+        super(context, manager);
     }
 
 
