@@ -1,7 +1,7 @@
 package com.dev.lyhoangvinh.livedata.base.api;
 
 import com.dev.lyhoangvinh.livedata.base.response.BaseResponse;
-import com.dev.lyhoangvinh.livedata.model.CollectionsResponse;
+import com.dev.lyhoangvinh.livedata.data.model.CollectionsResponse;
 
 import io.reactivex.Single;
 import retrofit2.http.GET;

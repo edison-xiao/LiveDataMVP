@@ -1,22 +1,22 @@
-package com.dev.lyhoangvinh.livedata.ui.collections;
-
+package com.dev.lyhoangvinh.livedata.ui.collectionsNew;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
 
 import com.dev.lyhoangvinh.livedata.base.presenter.BasePresenter;
-import com.dev.lyhoangvinh.livedata.data.local.CollectionsLocal;
-import com.dev.lyhoangvinh.livedata.data.model.Collectionss;
+import com.dev.lyhoangvinh.livedata.di.qualifier.ApplicationContext;
+import com.dev.lyhoangvinh.livedata.di.scopes.PerFragment;
+import com.dev.lyhoangvinh.livedata.ui.collections.CollectionsView;
 
+import javax.inject.Inject;
 
-public class CollectionsPresenter extends BasePresenter<CollectionsView> {
-
+@PerFragment
+public class CollecttionsNewPresenter extends BasePresenter<CollectionsView> {
     private int mPageIndex = 0;
 
-    public CollectionsPresenter() {
+    @Inject
+    public CollecttionsNewPresenter() {
     }
-
-    //------------------------------------------------------//
 
     public void loadData(boolean forceUpdate) {
         mPageIndex = 0;
@@ -37,15 +37,9 @@ public class CollectionsPresenter extends BasePresenter<CollectionsView> {
         }
 
         addRequest(getApi().getCollections(pageIndex), forceUpdate, dto -> {
-//            if (getView() != null) {
-//                getView().onLoadDataPage(dto.getCollections(), dto.isHasMore());
-//            }
-            saveCollections(dto.getCollections().get(1));
+            if (getView() != null) {
+                getView().onLoadDataPage(dto.getCollections(), dto.isHasMore());
+            }
         });
-    }
-
-
-    private void saveCollections(Collectionss collections) {
-
     }
 }

@@ -1,4 +1,4 @@
-package com.dev.lyhoangvinh.livedata.model;
+package com.dev.lyhoangvinh.livedata.data.model;
 
 
 import com.google.gson.annotations.Expose;
@@ -6,7 +6,10 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class CollectionsResponse {
+import io.realm.RealmList;
+import io.realm.RealmObject;
+
+public class CollectionsResponse  {
 
     @SerializedName("has_more")
     @Expose
@@ -23,7 +26,7 @@ public class CollectionsResponse {
 
     @SerializedName("collections")
     @Expose
-    private List<Collections> collections;
+    private List<Collectionss> collections;
 
     public boolean isHasMore() {
         return hasMore;
@@ -41,7 +44,7 @@ public class CollectionsResponse {
         return limit;
     }
 
-    public List<Collections> getCollections() {
+    public List<Collectionss> getCollections() {
         return collections;
     }
 }

@@ -10,13 +10,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.dev.lyhoangvinh.livedata.MyApplication;
 import com.dev.lyhoangvinh.livedata.base.response.ErrorEntity;
 import com.dev.lyhoangvinh.livedata.base.view.BaseView;
+import com.dev.lyhoangvinh.livedata.di.component.DaggerFragmentComponent;
+import com.dev.lyhoangvinh.livedata.di.component.FragmentComponent;
+import com.dev.lyhoangvinh.livedata.di.module.FragmentModule;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 public abstract class BaseFragment extends Fragment implements BaseView {
+
+    @Nullable
+    private FragmentComponent mFragmentComponent;
 
     protected abstract int getLayout();
 
@@ -37,12 +44,25 @@ public abstract class BaseFragment extends Fragment implements BaseView {
 
     protected abstract void initialize(Context ctx);
 
+
+    public FragmentComponent fragmentComponent() {
+        if (mFragmentComponent == null) {
+            mFragmentComponent = DaggerFragmentComponent.builder()
+                    .fragmentModule(new FragmentModule(this))
+                    .appComponent(MyApplication.get(getActivity()).getAppComponent())
+                    .build();
+        }
+        return mFragmentComponent;
+    }
+
+
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         if (unbinder != null) {
             unbinder.unbind();
         }
+        mFragmentComponent = null;
     }
 
     public void finishFragment() {

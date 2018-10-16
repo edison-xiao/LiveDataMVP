@@ -1,4 +1,4 @@
-package com.dev.lyhoangvinh.livedata.base.realm;
+package com.dev.lyhoangvinh.livedata.base.adapter;
 
 
 import android.arch.lifecycle.LifecycleOwner;
@@ -10,6 +10,10 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import com.dev.lyhoangvinh.livedata.base.adapter.BaseHeaderFooterAdapter;
+import com.dev.lyhoangvinh.livedata.base.realm.ListData;
+import com.dev.lyhoangvinh.livedata.base.realm.LiveRealmResultPair;
+import com.dev.lyhoangvinh.livedata.base.realm.LiveRealmResults;
+
 import io.realm.OrderedCollectionChangeSet;
 import io.realm.OrderedRealmCollection;
 import io.realm.RealmObject;

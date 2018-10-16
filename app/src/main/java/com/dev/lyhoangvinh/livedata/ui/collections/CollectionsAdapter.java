@@ -5,15 +5,15 @@ import android.view.View;
 import com.bumptech.glide.Glide;
 import com.dev.lyhoangvinh.livedata.R;
 import com.dev.lyhoangvinh.livedata.base.adapter.BaseAdapter;
-import com.dev.lyhoangvinh.livedata.model.Collections;
+import com.dev.lyhoangvinh.livedata.data.model.Collectionss;
 import com.dev.lyhoangvinh.livedata.utils.MyFunctions;
 
 import java.util.List;
 
 
-public class CollectionsAdapter extends BaseAdapter<Collections, CollectionsViewHolder> {
+public class CollectionsAdapter extends BaseAdapter<Collectionss, CollectionsViewHolder> {
 
-    public CollectionsAdapter(@NonNull List<Collections> data) {
+    public CollectionsAdapter(@NonNull List<Collectionss> data) {
         super(data);
     }
 
@@ -28,7 +28,7 @@ public class CollectionsAdapter extends BaseAdapter<Collections, CollectionsView
     }
 
     @Override
-    protected void onBindViewHolder(CollectionsViewHolder holder, @NonNull Collections item) {
+    protected void onBindViewHolder(CollectionsViewHolder holder, @NonNull Collectionss item) {
         holder.tvTitle.setText(item.getTitle());
         Glide.with(holder.itemView.getContext()).load(item.getCoverUrl())
                 .apply(MyFunctions.getRequestOptions()).into(holder.img);

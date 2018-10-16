@@ -1,25 +1,28 @@
 package com.dev.lyhoangvinh.livedata.base.presenter;
 
-import android.app.Activity;
+
+import android.arch.lifecycle.LifecycleOwner;
 import android.content.Context;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import com.dev.lyhoangvinh.livedata.MyApplication;
 import com.dev.lyhoangvinh.livedata.base.api.ApiClient;
 import com.dev.lyhoangvinh.livedata.base.api.ApiService;
 import com.dev.lyhoangvinh.livedata.base.api.ApiUtils;
-import com.dev.lyhoangvinh.livedata.base.interfaces.Destroyable;
+import com.dev.lyhoangvinh.livedata.base.interfaces.Lifecycle;
 import com.dev.lyhoangvinh.livedata.base.interfaces.PlainConsumer;
+import com.dev.lyhoangvinh.livedata.base.interfaces.Refreshable;
 import com.dev.lyhoangvinh.livedata.base.response.BaseResponse;
 import com.dev.lyhoangvinh.livedata.base.response.ErrorEntity;
 import com.dev.lyhoangvinh.livedata.base.view.BaseView;
+import com.dev.lyhoangvinh.livedata.di.qualifier.ApplicationContext;
 
 import io.reactivex.Single;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 
-public abstract class BasePresenter<V extends BaseView> implements Destroyable {
+public abstract class BasePresenter<V extends BaseView> implements Lifecycle, Refreshable {
 
     @Nullable
     private V view;
@@ -29,9 +32,7 @@ public abstract class BasePresenter<V extends BaseView> implements Destroyable {
     @NonNull
     private CompositeDisposable mCompositeDisposable;
 
-    public BasePresenter(@Nullable V mView, Context context) {
-        this.view = mView;
-        this.context = context;
+    public BasePresenter() {
         mCompositeDisposable = new CompositeDisposable();
     }
 
@@ -48,6 +49,20 @@ public abstract class BasePresenter<V extends BaseView> implements Destroyable {
         return ApiClient.makeService(ApiService.class);
     }
 
+    public void bindView(V view) {
+        this.view = view;
+    }
+
+    public void unbindView() {
+        this.view = null;
+    }
+
+    /**
+     * @return {@link LifecycleOwner} associate with this presenter (host activities, fragments)
+     */
+    protected LifecycleOwner getLifeCircleOwner() {
+        return (LifecycleOwner) view;
+    }
 
     /**
      * NULL SAFE
@@ -133,9 +148,40 @@ public abstract class BasePresenter<V extends BaseView> implements Destroyable {
     }
 
     @Override
+    public void onCreate() {
+
+    }
+
+    @Override
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
+
+    }
+
+    @Override
+    public void onStart() {
+
+    }
+
+    @Override
+    public void onStop() {
+
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+
+    }
+
+    @Override
+    public void refresh(){
+
+    }
+
+    @Override
     public void onDestroy() {
         if (mCompositeDisposable != null){
             mCompositeDisposable.dispose();
         }
+        unbindView();
     }
 }

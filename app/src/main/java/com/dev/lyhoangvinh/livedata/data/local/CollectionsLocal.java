@@ -1,4 +1,4 @@
-package com.dev.lyhoangvinh.livedata.local;
+package com.dev.lyhoangvinh.livedata.data.local;
 
 
 import io.realm.RealmObject;
