@@ -1,11 +1,14 @@
 package com.dev.lyhoangvinh.livedata.di.module;
 
 
+import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 
 import com.dev.lyhoangvinh.livedata.base.fragment.BaseFragment;
+import com.dev.lyhoangvinh.livedata.di.qualifier.ActivityContext;
+import com.dev.lyhoangvinh.livedata.di.qualifier.ActivityFragmentManager;
 import com.dev.lyhoangvinh.livedata.di.qualifier.ChildFragmentManager;
 import com.dev.lyhoangvinh.livedata.di.scopes.PerFragment;
 
@@ -39,4 +42,16 @@ public class FragmentModule {
         return mFragment.getActivity();
     }
 
+    @Provides
+    @ActivityFragmentManager
+    FragmentManager provideFragmentManager() {
+        return mFragment.getActivity().getSupportFragmentManager();
+    }
+
+
+    @Provides
+    @ActivityContext
+    Context provideContext() {
+        return mFragment.getContext();
+    }
 }

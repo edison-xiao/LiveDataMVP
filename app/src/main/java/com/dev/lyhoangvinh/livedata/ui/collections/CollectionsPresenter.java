@@ -13,8 +13,10 @@ public class CollectionsPresenter extends BasePresenter<CollectionsView> {
 
     private int mPageIndex = 0;
 
-    public CollectionsPresenter() {
+    public CollectionsPresenter(Context context) {
+        super(context);
     }
+
 
     //------------------------------------------------------//
 

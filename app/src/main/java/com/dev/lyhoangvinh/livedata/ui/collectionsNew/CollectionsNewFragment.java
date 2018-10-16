@@ -47,8 +47,6 @@ public class CollectionsNewFragment extends BasePresenterFragment<CollectionsVie
         rcv.setLayoutManager(linearLayoutManager);
         rcv.setItemAnimator(new DefaultItemAnimator());
         rcv.setHasFixedSize(true);
-//        rcv.addItemDecoration(new SimpleDividerItemDecoration(ctx, SimpleDividerItemDecoration.VERTICAL, R.drawable.list_divider_margin));
-//        rcv.setAdapter(new CollectionsRealmAdapter(MyApplication.getRealm().where(Collectionss.class).findAllAsync()));
         endlessScrollListener = new EndlessRecyclerViewScrollListener(linearLayoutManager) {
             @Override
             public void onLoadMore(int totalItemsCount) {

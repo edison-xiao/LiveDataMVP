@@ -31,7 +31,7 @@ public class CollectionsFragment extends BaseFragment implements CollectionsView
 
     @Override
     protected void initialize(Context ctx) {
-        presenter = new CollectionsPresenter();
+        presenter = new CollectionsPresenter(ctx);
         List<Collectionss> list = new ArrayList<>();
         adapter = new CollectionsAdapter(list);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(ctx);

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.annotation.Nullable;
 
 import com.dev.lyhoangvinh.livedata.base.presenter.BasePresenter;
+import com.dev.lyhoangvinh.livedata.di.qualifier.ActivityContext;
 import com.dev.lyhoangvinh.livedata.di.qualifier.ApplicationContext;
 import com.dev.lyhoangvinh.livedata.di.scopes.PerFragment;
 import com.dev.lyhoangvinh.livedata.ui.collections.CollectionsView;
@@ -15,7 +16,8 @@ public class CollecttionsNewPresenter extends BasePresenter<CollectionsView> {
     private int mPageIndex = 0;
 
     @Inject
-    public CollecttionsNewPresenter() {
+    public CollecttionsNewPresenter(@ActivityContext Context context) {
+        super(context);
     }
 
     public void loadData(boolean forceUpdate) {

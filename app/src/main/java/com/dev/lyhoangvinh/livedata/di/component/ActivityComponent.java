@@ -1,11 +1,11 @@
 package com.dev.lyhoangvinh.livedata.di.component;
 
-import android.content.Context;
+import android.support.v4.app.FragmentManager;
 
-import com.dev.lyhoangvinh.livedata.di.module.FragmentModule;
-import com.dev.lyhoangvinh.livedata.di.qualifier.ApplicationContext;
-import com.dev.lyhoangvinh.livedata.di.scopes.PerFragment;
-import com.dev.lyhoangvinh.livedata.ui.collectionsNew.CollectionsNewFragment;
+
+import com.dev.lyhoangvinh.livedata.di.module.ActivityModule;
+import com.dev.lyhoangvinh.livedata.di.qualifier.ActivityFragmentManager;
+import com.dev.lyhoangvinh.livedata.di.scopes.PerActivity;
 
 import dagger.Component;
 
@@ -22,9 +22,12 @@ import dagger.Component;
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License. */
-@PerFragment
-@Component(dependencies = AppComponent.class, modules = FragmentModule.class)
-public interface FragmentComponent {
+@PerActivity
+@Component(dependencies = AppComponent.class, modules = ActivityModule.class)
+public interface ActivityComponent {
 
-    void inject(CollectionsNewFragment fragment);
+    @ActivityFragmentManager
+    FragmentManager defaultFragmentManager();
+
+
 }

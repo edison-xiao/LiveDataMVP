@@ -16,7 +16,7 @@ import com.dev.lyhoangvinh.livedata.base.interfaces.Refreshable;
 import com.dev.lyhoangvinh.livedata.base.response.BaseResponse;
 import com.dev.lyhoangvinh.livedata.base.response.ErrorEntity;
 import com.dev.lyhoangvinh.livedata.base.view.BaseView;
-import com.dev.lyhoangvinh.livedata.di.qualifier.ApplicationContext;
+import com.dev.lyhoangvinh.livedata.di.qualifier.ActivityContext;
 
 import io.reactivex.Single;
 import io.reactivex.disposables.CompositeDisposable;
@@ -32,7 +32,8 @@ public abstract class BasePresenter<V extends BaseView> implements Lifecycle, Re
     @NonNull
     private CompositeDisposable mCompositeDisposable;
 
-    public BasePresenter() {
+    public BasePresenter(@ActivityContext Context context) {
+        this.context = context;
         mCompositeDisposable = new CompositeDisposable();
     }
 
