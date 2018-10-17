@@ -8,11 +8,9 @@ public class RealmDatabase {
 
     private final Realm mRealm;
 
-
     public RealmDatabase(Realm realm) {
         mRealm = realm;
     }
-
 
     /**
      * Closes the Realm instance and all its resources.
