@@ -9,15 +9,12 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.View;
-
 import com.dev.lyhoangvinh.livedata.R;
 import com.dev.lyhoangvinh.livedata.base.interfaces.UiRefreshable;
 import com.dev.lyhoangvinh.livedata.base.presenter.BasePresenter;
 import com.dev.lyhoangvinh.livedata.base.view.BaseView;
 import com.dev.lyhoangvinh.livedata.constants.Constants;
 import com.dev.lyhoangvinh.livedata.widget.AppBarStateChangeListener;
-
-
 import butterknife.BindView;
 
 /**
