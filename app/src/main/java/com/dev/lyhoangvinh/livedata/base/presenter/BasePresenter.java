@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import com.dev.lyhoangvinh.livedata.base.api.ApiClient;
 import com.dev.lyhoangvinh.livedata.base.api.ApiService;
 import com.dev.lyhoangvinh.livedata.base.api.ApiUtils;
 import com.dev.lyhoangvinh.livedata.base.interfaces.Lifecycle;

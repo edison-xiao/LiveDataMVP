@@ -8,6 +8,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -44,12 +45,12 @@ public abstract class BaseFragment extends Fragment implements BaseView {
     }
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        initialize(getActivity());
+        initialize(view, getActivity());
     }
 
-    protected abstract void initialize(Context ctx);
+    protected abstract void initialize(View view, Context ctx);
 
 
     public FragmentComponent fragmentComponent() {

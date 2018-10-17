@@ -1,15 +1,16 @@
 package com.dev.lyhoangvinh.livedata.ui.collections;
 
 import android.content.Context;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
-import com.dev.lyhoangvinh.livedata.MyApplication;
 import com.dev.lyhoangvinh.livedata.R;
 import com.dev.lyhoangvinh.livedata.base.adapter.EndlessRecyclerViewScrollListener;
-import com.dev.lyhoangvinh.livedata.base.fragment.BaseFragment;
-import com.dev.lyhoangvinh.livedata.base.managers.ServiceManager;
+import com.dev.lyhoangvinh.livedata.base.fragment.BasePresenterFragment;
 import com.dev.lyhoangvinh.livedata.data.model.Collectionss;
 
 import java.util.ArrayList;
@@ -17,23 +18,27 @@ import java.util.List;
 
 import butterknife.BindView;
 
-public class CollectionsFragment extends BaseFragment implements CollectionsView {
+public class CollectionsNewFragment extends BasePresenterFragment<CollectionsView, CollecttionsNewPresenter> implements CollectionsView {
 
     @BindView(R.id.rcv)
     RecyclerView rcv;
-
     private CollectionsAdapter adapter;
-    private CollectionsPresenter presenter;
     private EndlessRecyclerViewScrollListener endlessScrollListener;
-
     @Override
     protected int getLayout() {
         return R.layout.fragment_collections;
     }
 
     @Override
-    protected void initialize(Context ctx) {
-//        presenter = new CollectionsPresenter(ctx, new ServiceManager(My);
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        fragmentComponent().inject(this);
+    }
+
+    @Override
+    protected void initialize(View view, Context ctx) {
+        super.initialize(view, ctx);
+        getPresenter().loadData(getListCount() == 0);
         List<Collectionss> list = new ArrayList<>();
         adapter = new CollectionsAdapter(list);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(ctx);
@@ -41,7 +46,6 @@ public class CollectionsFragment extends BaseFragment implements CollectionsView
         rcv.setLayoutManager(linearLayoutManager);
         rcv.setItemAnimator(new DefaultItemAnimator());
         rcv.setHasFixedSize(true);
-        rcv.setAdapter(adapter);
         endlessScrollListener = new EndlessRecyclerViewScrollListener(linearLayoutManager) {
             @Override
             public void onLoadMore(int totalItemsCount) {
@@ -49,12 +53,13 @@ public class CollectionsFragment extends BaseFragment implements CollectionsView
             }
         };
         rcv.addOnScrollListener(endlessScrollListener);
-        presenter.loadData(getListCount() == 0);
+        rcv.setAdapter(adapter);
     }
 
     private int getListCount() {
         return adapter != null ? adapter.getItemCount() : 0;
     }
+
 
     @Override
     public void clearList() {

@@ -1,11 +1,8 @@
 package com.dev.lyhoangvinh.livedata.di.component;
 
-import android.content.Context;
-
 import com.dev.lyhoangvinh.livedata.di.module.FragmentModule;
-import com.dev.lyhoangvinh.livedata.di.qualifier.ApplicationContext;
 import com.dev.lyhoangvinh.livedata.di.scopes.PerFragment;
-import com.dev.lyhoangvinh.livedata.ui.collectionsNew.CollectionsNewFragment;
+import com.dev.lyhoangvinh.livedata.ui.collections.CollectionsNewFragment;
 
 import dagger.Component;
 

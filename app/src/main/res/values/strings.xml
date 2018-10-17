@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">livedata</string>
+    <string name="up_top">UP</string>
+    <string name="no_data">No Data</string>
 </resources>

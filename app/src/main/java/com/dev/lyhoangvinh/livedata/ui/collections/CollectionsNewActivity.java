@@ -1,4 +1,4 @@
-package com.dev.lyhoangvinh.livedata.ui.collectionsNew;
+package com.dev.lyhoangvinh.livedata.ui.collections;
 
 import com.dev.lyhoangvinh.livedata.base.activity.BaseSingleFragmentActivity;
 

@@ -52,4 +52,27 @@
     <dimen name="listitem_decoration_edge">8dp</dimen>
     <dimen name="listitem_decoration_none">0dp</dimen>
     <!-- END widget -->
+
+
+    <dimen name="fab_margin">16dp</dimen>
+
+    <dimen name="margin_default">@dimen/base16</dimen>
+    <dimen name="margin_super_large">@dimen/base48</dimen>
+
+    <dimen name="drawer_item_height">@dimen/base50</dimen>
+    <dimen name="drawer_header_height">@dimen/base180</dimen>
+
+    <dimen name="avatar_size_small">@dimen/base32</dimen>
+    <dimen name="avatar_size_normal">@dimen/base50</dimen>
+    <dimen name="avatar_size_large">@dimen/base80</dimen>
+    <dimen name="avatar_size_large_extra">@dimen/base100</dimen>
+
+    <dimen name="progress_bar_size_small">@dimen/base25</dimen>
+
+    <dimen name="btn_height_default">@dimen/base40</dimen>
+
+    <dimen name="line_normal">1dp</dimen>
+    <dimen name="line_thin">0.5dp</dimen>
+    <dimen name="line_thin_extra">0.3dp</dimen>
+    <dimen name="android_status_bar_height">24dp</dimen>
 </resources>

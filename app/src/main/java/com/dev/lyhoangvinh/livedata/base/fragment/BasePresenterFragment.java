@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.CallSuper;
 import android.support.annotation.Nullable;
+import android.view.View;
 
 import com.dev.lyhoangvinh.livedata.base.presenter.BasePresenter;
 import com.dev.lyhoangvinh.livedata.base.view.BaseView;
@@ -29,7 +30,7 @@ public abstract class BasePresenterFragment<V extends BaseView, P extends BasePr
 
     @Override
     @CallSuper
-    protected void initialize(Context ctx) {
+    protected void initialize(View view, Context ctx) {
         if (presenter != null) {
             presenter.bindView(getViewLayer());
             presenter.onCreate();
